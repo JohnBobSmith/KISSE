@@ -20,6 +20,10 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\src\source\main.cpp" />
+    <ClCompile Include="KWindow.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="KWindow.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{9A825BFA-B8CC-4450-84A0-F5C2F9315B40}</ProjectGuid>
