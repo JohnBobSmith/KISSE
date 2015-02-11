@@ -1,6 +1,6 @@
 SRCPATH = ../../src/source/
 
-all: objects asm
+all: objects
 	rm *.o
 	
 objects: main.o
