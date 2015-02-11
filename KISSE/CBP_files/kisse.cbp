@@ -29,10 +29,18 @@
 			</Target>
 		</Build>
 		<Compiler>
+			<Add option="-std=c++11" />
+			<Add option="-Wextra" />
 			<Add option="-Wall" />
 			<Add option="-fexceptions" />
+			<Add directory="/usr/include/SFML" />
 		</Compiler>
-		<Unit filename="main.cpp" />
+		<Linker>
+			<Add library="sfml-graphics" />
+			<Add library="sfml-window" />
+			<Add library="sfml-system" />
+		</Linker>
+		<Unit filename="../../src/source/main.cpp" />
 		<Extensions>
 			<code_completion />
 			<debugger />
