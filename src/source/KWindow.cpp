@@ -1,4 +1,4 @@
-#include "KWindow.h"
+#include "headers/KWindow.h"
 
 /*
 Construct the renderwindow here
