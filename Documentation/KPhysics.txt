@@ -1,6 +1,6 @@
 KISSE PHYSICS LIBRARY SPECIFICATION
 DRAFT 1
-
+If on github, please view using the RAW button
 WHAT THIS LIBRARY DOES
 This library will take information about a given set of objects, represented as physics objects, and more or less "automagically" update
 the physics state of the objects whenever necissary.  The library itself is system-time bound so the number of physics "ticks" per second
