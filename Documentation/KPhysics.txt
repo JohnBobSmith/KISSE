@@ -30,6 +30,10 @@ WorldPhysics members:
 		if no value is given for gravity, it is given the default value 9.807.  Wind is the current wind speed, represented in meters per second.  A
 		negative wind speed means the wind is blowing to the left of the screen, a positive windspeed means it is blowing to the right.  Finally
 		topSpeed is the maximum speed any object can move in this world,represented as meters per second, it can also be thought of as terminal velocity.
+	~WorldPhysics():
+		This deconstructor safely deletes all data stored by the object and detaches all PhysicsObject members.
+		THIS DOES NOT RELEASE MEMORY ALLOCATED TO PHYSICS OBJECTS. If you need to delete physics objects after
+		deleting the world you have to do it yourself.
 	void setGravity(float gravity=9.807):
 		Sets the gravitational force exerted on objects in this world.
 	void setWind(float wind=0.0):
@@ -72,6 +76,9 @@ PhysicsObject members:
 		that the object will slow down if it is not accelerating, and if it is accelerating it will still slow down if it's coefficient of
 		friction as well as environmental forces overpower the speed at which it is accelerating.  acceleration is the speed, represented in
 		meters per second per second, that the physics object gains.  
+	~PhysicsObject():
+		This deconstructor safely deletes all data stored by the PhysicsObject.  If it is currently attached to a world it also
+		detaches this PhysicsObject from the world before being deleted.
 	void setWeight(int weight = 50):
 		sets the weight of the PhysicsObject
 	void setFriction(float friction = 1.0):
@@ -82,4 +89,11 @@ PhysicsObject members:
 		sets the rate of acceleration of the PhysicsObject.
 	void setLocation(float x = 0.0, float y = 0.0):
 		This sets the current location of the PhysicsObject. WARNING: this is basically teleportation, so use it sparingly.
+	float * getLocation():
+		returns the current x and y location of the physics object in a two dimensional array.  The returned array
+		is not updated as location changes, and memory (should) be freed between subsiquent calls 
+	void getLocation(float * output):
+		writes the current location to the supplied array, use this function to write the x and y location to an
+		array that has already had memory allocated to it.  Memory does not and should not be freed between
+		subsiquent calls
 	
