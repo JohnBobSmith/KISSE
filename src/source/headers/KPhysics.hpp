@@ -1,5 +1,8 @@
 #pragma once
 #include <cmath>
+#include <algorithm>
+#include <vector>
+using std::vector;
 class WorldPhysics{
 public:
 	WorldPhysics(float gravity=9.807, float wind=0.0, unsigned int topSpeed = 320000);
@@ -7,16 +10,16 @@ public:
 	void setGravity(float gravity=9.807);
 	void setWind(float wind=0.0);
 	void setTopSpeed(unsigned int topSpeed=320000);
-	byte attachMember(PhysicsObject * member);
-	byte detachMember(PhysicsObject * member);
+	short attachMember(PhysicsObject * member);
+	short detachMember(PhysicsObject * member);
 	size_t tick();
 private:
 	float gravity;
 	float wind;
-	unsigned int topspeed;
-	PhysicsObject members[];
+	unsigned int topSpeed;
+	vector<PhysicsObject*> PhysicsObjects;
 };
-class PhysicsObjects{
+class PhysicsObject{
 public:
 	PhysicsObject(float location[2] = {0.0,0.0},int weight = 5, float friction = 1.0, int bouncyness = 10, float initialvelocity[3] = {0.0, 0.0, 0.0}, float acceleration = 0.0);
 	~PhysicsObject();
@@ -28,6 +31,7 @@ public:
 	float * getLocation();
 	void getLocation(float * output);
 private:
+	WorldPhysics * boundto = nullptr;
 	float * location;
 	int weight;
 	float friction;
