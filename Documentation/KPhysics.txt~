@@ -57,9 +57,9 @@ WorldPhysics members:
 PhysicsObject members:
 	PhysicsObject(float location[2] = {0.0,0.0},int weight = 50, float friction = 1.0, int bouncyness = 10, float initialvelocity[3] = {0.0, 0.0, 0.0}, float acceleration = 0.0):
 		This is the constuctor for the class PhysicsObject.  location is the location of the PhysicsObject in the "world" when it
-		first spawns, all calculations are performed relative to this location.  Weight is the weight of an object represented on a percent scale
-		ranging from 0 to 100, this may be revised if necessary (it may be a better idea to represent this in kilograms.)  If weight
-		is negative than the object will not move regardless of the force applied to it (static objects.) 					friction
+		first spawns, all calculations are performed relative to this location.  Weight is the weight of an object represented in
+		kilograms.
+		If the weight is negative than the object will not move regardless of the force applied to it (static objects.) friction
 		is the coefficient of friction of the PhysicsObject.  This effects how rapidly it slows down on a surface and how fast other
 		things slow down on it.  It is important to note that 1.0 is a VERY high coefficient of friction (it's the coefficient for rubber)
 		refer to the following ASCII chart for the coefficients of different materials.
