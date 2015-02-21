@@ -12,9 +12,12 @@
 */
 
 #include <SFML/Graphics.hpp>
-
+#include "headers/KPhysics.hpp"
 int main()
 {
+    PhysicsObject * ball = new PhysicsObject();
+    WorldPhysics level1 = new WorldPhysics();
+    WorldPhysics.attachMember(ball)
     sf::RenderWindow window(sf::VideoMode(200, 200), "SFML TEST");
     sf::CircleShape circle(100.f);
     circle.setFillColor(sf::Color::Green);

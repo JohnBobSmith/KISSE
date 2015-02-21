@@ -40,10 +40,13 @@
 			<Add library="sfml-window" />
 			<Add library="sfml-system" />
 		</Linker>
+		<Unit filename="../../src/source/KPhysics.cpp" />
+		<Unit filename="../../src/source/headers/KPhysics.hpp" />
 		<Unit filename="../../src/source/main.cpp" />
 		<Extensions>
 			<code_completion />
 			<debugger />
+			<envvars />
 		</Extensions>
 	</Project>
 </CodeBlocks_project_file>
