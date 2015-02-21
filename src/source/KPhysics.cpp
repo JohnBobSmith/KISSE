@@ -3,10 +3,9 @@
 #include <algorithm>
 #include <vector>
 #include <cstring>
-WorldPhysics::WorldPhysics(float gravity, float wind[3], unsigned int topSpeed){
-    this->wind = new float[3];
+WorldPhysics::WorldPhysics(float gravity, array<float, 3> wind, unsigned int topSpeed){
 	this->gravity = gravity;
-	memcpy(this->wind, wind, sizeof(wind)); //This is for safety, we cannot afford to have variables modified in-flight
+	this->wind = wind;
 	this->topSpeed = topSpeed;
 }
 WorldPhysics::~WorldPhysics(){
@@ -29,22 +28,22 @@ void WorldPhysics::setTopSpeed(unsigned int topSpeed){
 short WorldPhysics::attachMember(PhysicsObject * member){
 	member->boundto = this;
 	this->PhysicsObjects.push_back(member);
+	return 0;
 }
 short WorldPhysics::detachMember(PhysicsObject * member){
 	member->boundto = nullptr;
 	this->PhysicsObjects.erase(std::remove(this->PhysicsObjects.begin(), this->PhysicsObjects.end(), member));
+	return 0;
 }
 size_t WorldPhysics::tick(){
 	return 0;
 }
-PhysicsObject::PhysicsObject(float location[2], int weight, float friction, int bouncyness, float initialvelocity[3], float acceleration, float airResistance){
-	this->location = new float[2];
-	this->velocity = new float[3];
-	memcpy(this->location, location, 2*sizeof(location[0]));
+PhysicsObject::PhysicsObject(array<float, 2> location, int weight, float friction, int bouncyness, array<float, 3> initialvelocity, float acceleration, float airResistance){
+	this->location = location;
 	this->weight = weight;
 	this->friction = friction;
 	this->bouncyness = bouncyness;
-	memcpy(this->velocity, initialvelocity, 3*sizeof(initialvelocity[0]));
+	this->velocity = initialvelocity;
 	this->acceleration = acceleration;
 	this->resistance = airResistance;
 }
