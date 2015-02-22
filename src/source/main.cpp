@@ -10,14 +10,12 @@
     you give credit to the original
     authors.
 */
-
 #include <SFML/Graphics.hpp>
 #include "headers/KPhysics.hpp"
+const char * elloprint = "Hello world!";
 int main()
 {
-    PhysicsObject * ball = new PhysicsObject();
-    WorldPhysics * level1 = new WorldPhysics();
-	level1->attachMember(ball);
+	
     sf::RenderWindow window(sf::VideoMode(200, 200), "SFML TEST");
     sf::CircleShape circle(100.f);
     circle.setFillColor(sf::Color::Green);
